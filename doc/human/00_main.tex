@@ -1,0 +1,89 @@
+\documentclass[10pt, twocolumn]{article}
+\usepackage[letterpaper, left=0.75in, right=0.75in, top=1in, bottom=1.25in, footskip=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{abstract}
+\usepackage[colorlinks,allcolors=blue]{hyperref}
+\usepackage[backend=bibtex, style=numeric, hyperref=true,maxbibnames=99]{biblatex}
+\addbibresource{10_bibliography.bib}
+\usepackage{caption}
+\usepackage{paralist}
+\setcounter{secnumdepth}{2}
+\usepackage{pgfgantt}
+\usepackage{titlesec}
+\titleformat*{\subsection}{\small}
+\usepackage{tikz}
+\tikzstyle{similar}=[
+    rectangle,
+    draw=blue!50,
+    fill=blue!10,
+    thick,
+    inner sep=5pt,
+    font=\scriptsize]
+\tikzstyle{discovered}=[
+    rectangle,
+    draw=green!50,
+    fill=green!5,
+    thick,
+    inner sep=5pt,
+    font=\scriptsize]
+\tikzstyle{no_interest}=[
+    rectangle,
+    draw=black!50,
+    fill=black!2,
+    inner sep=5pt,
+    font=\scriptsize]
+
+\usepackage{url}
+\usepackage{breakurl}
+\PassOptionsToPackage{hyphens,breaklinks}{url}\usepackage{hyperref}
+\hypersetup{
+	colorlinks=false,
+	hidelinks
+}
+
+\usepackage{xcolor}
+\usepackage{todo}
+\usepackage{balance}
+
+\input{newcommands}
+
+\usepackage{titling}
+
+\title{Research Report - Measuring Performance Gains with Small Scale Human Labeling in Software Vulnerability Detection}
+\author{Josemar Ochoa\\
+Faculty Advisor: Hui Chen}
+\date{\today}
+
+
+
+
+\begin{document}
+
+% \maketitle
+
+\renewenvironment{abstract}
+{\begin{quote}
+\noindent \rule{\linewidth}{.5pt}\par{\bfseries \abstractname.}}
+{\medskip\noindent \rule{\linewidth}{.5pt}
+\end{quote}
+}
+
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+\input{0_abstract} 
+\end{abstract}
+\end{@twocolumnfalse} ]
+
+
+\input{1_intro} 
+\input{2_research}
+\input{3_rq}
+\input{4_schedule}
+\balance
+\printbibliography
+%\todos
+\end{document}
+
+

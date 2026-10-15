@@ -1,0 +1,47 @@
+\section{Proposed Research}
+\done\todo{Introduce proposed research: In what ways do human-annotated vulnerability/clean functions improve automated vulnerability detection? Please cite https://arxiv.org/abs/2410.13098 -- use this to motivate the research: we only need ~100 data instance to have obserable differences -- do we observe the similar for vulnerability detection; if so we only need to ask humans (you and me) to label 100 functions.}
+
+\done\todo{please address the comment left on Overleaf.}
+\begin{figure*}[!htbp]
+    \includegraphics[width=\linewidth]{figures/research_diagram.pdf}
+    \caption{Human-in-the-loop Data Curation for Vulnerability Commit Patches}
+    \label{fig:research}
+\end{figure*}
+
+Figure~\ref{fig:research} summarized the proposed research. Modern software development relies on source code version control systems (VCS), such as those hosted on GitHub, GitLab, and BitBucket. A VCS stores the evolutionary history of software. In this project, a data instance is a commit patch extracted from a software project's evolutionary history on a VCS. A commit patch is defined as ``vulnerable'' when one of the functions it touches contains a known software security weakness.
+
+\subsection{UQ Commit Patch Selection}
+\done\todo{Reorganize the writing, and put UQ patch selection method here. Cite the UQ paper. Explain the concepts of epistemic and aleatoric uncertainties (the paper has the definition). Emphasize the model/code is already written -- include a footnote for the code repository, like~\footnote{The implementation of the UQ data selection approach is at \url{https://github.com/huichen-cs/vuldatapublic}} }
+
+One method to select commit patches will employ the use of a machine learning (ML) model that uses Uncertainty Quantification, which has already been tested and created by Chen et al~\cite{chen2024improvingdatacurationsoftware}. 
+Their model\footnote{Implementation of the UQ data selection approach: \url{https://github.com/huichen-cs/vuldatapublic}} uses the process of distinguishing data based on aleatoric and epistemic uncertainties. Aleatoric uncertainty arises from noise within datasets which affect patch quality, while epistemic uncertainty arises from the model's lack of knowledge within the subject, affecting the utility of chosen patches~\cite{chen2024improvingdatacurationsoftware}. Their study also found that the best techniques for vulnerability patch data sets are Model Ensemble for better response to noise within data sets and Heteroscedastic models to make model respond better to characteristic changes within patches.
+
+\subsection{LLM Commit Patch Filtering}
+\done\todo{Similarly, put the LLM filter discussion here. Also include a footnote for its code, like ~\footnote{The implementation of LLM commit patch selection is at \url{https://github.com/charliedil/LLM_based_patch_filtering.git}}}
+
+Our second method to select commit patches will be through the use of generative large language models (LLMs), which, in contrast to the UQ model, does not require training. We will employ the Generated Knowledge Prompting style to select patches from a candidate pool, a method that has been tested by Dil et al~\cite{dil2025}\footnote{Implementation of LLM commit patch selection: \url{https://github.com/charliedil/LLM_based_patch_filtering.git}} and has been shown to be the most effective across LLMs (Llama3, GPT4, CodeLlama, DeepSeek-R1). Generated Knowledge Prompting, is the process of asking the model to provide relevant information prior to asking the question. In their study, they discovered this filtering method gave a 7-9\% improvement in precision across popular prediction models~\cite{dil2025}.
+
+\subsection{Candidate Projects and Commit Patches}
+\done\todo{Discuss you want to select software projects and extract commit patches from selected projects, which serve as the candidate commit patches to select from for annotation. To make this work more interesting and timely, we can select machine learning library projects. You can cite this paper: https://ieeexplore.ieee.org/abstract/document/10173858~\cite{harzevili2023characterizing}, and argue that these libraries are frequently used by AI/machine learning models, which makes this work also timely.}
+
+To test the real world capabilities of these models, we will curate a new set of commit patches from open source projects. This new set will serve as candidate data that will later be selected for annotation. The commit patches will be obtained from machine learning library projects, as these libraries are often used across industries in numerous AI/ML models, making our work highly relevant. A recent study has discovered 596 software vulnerabilities from a range of machine learning libraries and explored their types, causes, symptoms, and solutions~\cite{harzevili2023characterizing}. Building on this, our work will directly contribute to supporting security in the AI/ML space.
+
+\subsection{Human Annotation}
+\done\todo{You want to explain that you will develop a protocol for a team of people (you and me, maybe other students) to annotate the selected patches. You want to keep the number to be annotated to be small. You said 100, that is a good number (can also be ambitious). You don't have to fully specify the protocol. Instead, you can say that you follow the protocol found in this paper https://link.springer.com/article/10.1007/s10664-024-10551-8~\cite{teng2024online}. By the way, for any papers you cannot download directly, please go to https://library.brooklyn.cuny.edu, and search the paper there.}
+
+A protocol will be followed to help facilitate the process of annotating data between our team. Teng et al.~\cite{teng2024online} documented a data annotation protocol and has shown to be effective across 23 open source projects for their software defect prediction model. In this project, we shall use their data annotation protocol as a blueprint for our own.
+
+\subsection{Vulnerability Prediction}
+\done\todo{You want to discuss that you then want to run vulnerability prediction models. For this, you can cite the UQ paper and indicate that some vulnerability prediction models are already implemented and they are readily to be used -- otherwise, again people would question whether you can do all of these.  }
+
+To test efficacy of the labeled data, we will run vulnerability prediction models. However, to avoid the need of developing one, we will use ones already implemented and ready to be used. The model selected will be the LineVul prediction model as it's considered one of the best among many~\cite{fu2022linevul}. The model identifies vulnerable functions and surrounding lines of code that cause vulnerability.
+
+% In the training of Natural Language Processors (NLPs) the use of 100\% synthetic data can greatly reduce performance, but in prior research its been shown that a mixture of synthetic data and just 10\% human curated data, is only marginally less performant than the use of pure human created data~\cite{ashok2024little}. 
+
+% This proposed research (Figure~\ref{fig:research}) is aimed to see if the same pattern of applying a percentage of human annotated data to improve performance applies to vulnerability detection. Since the manual annotation is laborious and costly, its preferable to keep the amount of needed data to a minimum. 
+
+% This can be achieved in three different manners: Implementing new methods or improving current ones for selecting data, such as the implementations of uncertainty quantification models and LLMs, using the process shown in~\ref{fig:research}; analyzing the correctness between the selected and unselected data points, and optimizing the selection strategy to ensure a significant vulnerability identification can be possible with a small number of newly labeled data points. This research will focus on the task of optimizing the collection of data, and tend to the other two if time permits. 
+
+% The process of optimizing data selection is shown in~\ref{fig:research}, a set of high quality patches that are known to have or known to not have vulnerabilities is acquired. This data set is then used to train the vulnerability detection model. A new set of candidate patches will then be acquired from open-source projects to be used in the detection model to set the baseline performance of its real world capabilities. All data sets will be passed through an Uncertainty Quantification model(UQ) and a Large Language Model(LLM).  . The models are then applied to candidate patches, from which a resulting subset of around 100 functions will be labeled by us. This newly annotated data will then be used to retrain the detection model, to then be rerun on the same candidate set. Both set of results will be examined and evaluated for any improvements in performance due to the human annotated data.
+
+

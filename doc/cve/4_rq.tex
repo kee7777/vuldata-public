@@ -1,0 +1,20 @@
+\section{Research Questions (RQs)}
+\done\todo{define research question: what do you want to answer about the data, the data collection method etc.}
+
+\begin{enumerate}
+    \item RQ1: How complete and reliable is the patch information provided by NVD/CVE, and what filtering criteria is needed so that only complete, working patches are returned?
+    
+    \item RQ2: How effectively can we classify collected vulnerability examples by type as well as assign them difficulty levels that properly reflect the appropriate curriculum level?
+\end{enumerate}
+
+RQ1, as it is, contains a clearer workflow, but Research Question 2 is more open research question. To develop and proof a process or method to assign CWE codes to unlabeled CVEs may require several rounds of iteration and testing and may not yield an adequate solution within this study's time frame. \attention{false}{As such, in this project, we aim to provide a complete answer to RQ2; however, for RQ 2, a complete answer might not be attainable. Nevertheless, we focus on providing empirical understanding leading to future research.}
+
+\subsection{Patch Completeness and Automated Filtering (RQ1)}
+We will analyze, within a time window to be determined later, two key metrics of CVE entries gathered: the fraction of entries that have working patch URLs, as well as the fraction of entries that lack a CWE label entirely. First, we want to consider common characteristics in entries that contain invalid patch URLs or outdated patches to determine filtering criteria and ensure a higher-quality, curated dataset. Second, we want to examine the amount of entries that lack CWEs; if prevalent enough, we will need to find a method to rectify or mitigate the issue.
+\subsection{Vulnerability Classification (RQ2)}
+We will use our filtered CVEs and assign them appropriately to the correct CWE labels — ensuring alignment with labels in CS2023. \attention{false}{We will build a classification model using those CVEs that has CWE labels as training data and predict the CWE label for those that does not.}
+
+We hypothesize that some CVEs can be assigned a CWE accurately, and some cannot. We will thus use examples that we can manually label with accuracy and confidence to train a machine learning model to predict CWE labels. Each machine labeled CVe will include an output value named prediction confidence. Any confidence value below our determined threshold will be reviewed for manual labeling.
+
+\subsection{Difficulty Scoring (RQ2)}
+ Then, didactic difficulty scores will be assigned using measurable attributes of patches such as size, overall complexity and number of prerequisite concepts. The individual weights for each of these attributes will be considered in real-life impacts and will be tuned over a duration of time. Prior work reflects that even modern LLMs may misclassify vulnerabilities, over roughly 25\% of the time~\cite{ullah2024llms}, which emphasizes the need for a custom, purpose-built, classification and filtering process for the curation of vulnerability examples.

@@ -1,0 +1,183 @@
+@inproceedings{mirsky2023vulchecker,
+  title={{VulChecker}: Graph-based vulnerability localization in source code},
+  author={Mirsky, Yisroel and Macon, George and Brown, Michael and Yagemann, Carter and Pruett, Matthew and Downing, Evan and Mertoguno, Sukarno and Lee, Wenke},
+  booktitle={32nd USENIX Security Symposium (USENIX Security 23)},
+  pages={6557--6574},
+  year={2023}
+}
+
+@inproceedings{fu2022linevul,
+  title={{LineVul}: A transformer-based line-level vulnerability prediction},
+  author={Fu, Michael and Tantithamthavorn, Chakkrit},
+  booktitle={Proceedings of the 19th International Conference on Mining Software Repositories},
+  pages={608--620},
+  year={2022}
+}
+
+@article{teng2024online,
+  title={Online cross-project approach with project-level similarity for just-in-time software defect prediction},
+  author={Teng, Cong and Song, Liyan and Yao, Xin},
+  journal={Empirical Software Engineering},
+  volume={29},
+  number={6},
+  pages={158},
+  year={2024},
+  publisher={Springer}
+}
+
+@inproceedings{harzevili2023characterizing,
+  title={Characterizing and understanding software security vulnerabilities in machine learning libraries},
+  author={Harzevili, Nima Shiri and Shin, Jiho and Wang, Junjie and Wang, Song and Nagappan, Nachiappan},
+  booktitle={2023 IEEE/ACM 20th International Conference on Mining Software Repositories (MSR)},
+  pages={27--38},
+  year={2023},
+  organization={IEEE}
+}
+
+@article{dil2025,
+	title = {Towards higher quality software vulnerability data using LLM-based patch filtering},
+	journal = {Journal of Systems and Software},
+	pages = {112581},
+	year = {2025},
+	issn = {0164-1212},
+	doi = {10.1016/j.jss.2025.112581},
+	url = {https://www.sciencedirect.com/science/article/pii/S016412122500250X},
+	author = {Charlie Dil and Hui Chen and Kostadin Damevski},
+	keywords = {Vulnerability patch quality, Automatic vulnerability prediction, Large language models},
+	abstract = {High-quality vulnerability patch data is essential for understanding vulnerabilities in software systems. Accurate patch data sheds light on the nature of vulnerabilities, their origins, and effective remediation strategies. However, current data collection efforts prioritize rapid release over quality, leading to patches that are incomplete or contain extraneous changes. In addition to supporting vulnerability analysis, high-quality patch data improves automatic vulnerability prediction models, which require reliable inputs to predict issues in new or existing code. In this paper, we explore using large language models (LLMs) to filter vulnerability data by identifying and removing low-quality instances. Trained on large textual corpora including source code, LLMs offer new opportunities to improve data accuracy. Our goal is to leverage LLMs for reasoning-based assessments of whether a code hunk fixes a described vulnerability. We evaluate several prompting strategies and find that Generated Knowledge Prompting, where the model first explains a hunk’s effect, then assesses whether it fixes the bug, is most effective across three LLMs. Applying this filtering to the BigVul dataset, we show a 7%–9% improvement in prediction precision for three popular vulnerability prediction models. Recall declines slightly, 2%–8%, across models, likely reflecting the impact of reduced dataset size.},
+	preprint = {preprint/llmcleanjss.pdf},
+}
+
+
+@misc{chen2024improvingdatacurationsoftware,
+      title={Improving Data Curation of Software Vulnerability Patches through Uncertainty Quantification}, 
+      author={Hui Chen and Yunhua Zhao and Kostadin Damevski},
+      year={2024},
+      eprint={2411.11659},
+      archivePrefix={arXiv},
+      primaryClass={cs.SE},
+      url={https://arxiv.org/abs/2411.11659}, 
+}
+
+@inproceedings{fie2025,
+  author={Lewis, Kevin and Chen, Hui},
+  title={{WIP}: How Effective Are LLM-Implemented Autograders for Programming Assignments Compared to Human Graders?},
+  booktitle={To appear in Proceedings of the 2025 IEEE Frontiers in Education Conference (FIE)}, 
+  volume={},
+  number={},
+	pages={LC:1--LC:5},
+	year={2025},
+	organization={IEEE},
+  keywords={Grades, Grading Systems, Automated Grading, Student Assessment, Computing Skills},
+  preprint = {preprint/fie2025autograder.pdf},
+	abstract = {This research-to-practice WIP paper describes the development and
+		evaluation of a generative Large Language Model (gLLM)-based autograder for
+			computer programming assignments. Manual grading is becoming increasingly
+			unsustainable due to growing student enrollment and the demand for
+			timely, high-quality feedback. To address these challenges, this study
+			explores the use of automated grading tools to reduce instructors’
+			workload and improve scalability. The proposed autograder takes a
+			“reverse-engineering” approach, i.e., it converts student code into
+			structured natural language summaries, which are then compared against
+			predefined grading rubrics. An evaluation is performed using an external
+			dataset (the Menagerie dataset), which contains real student submissions
+			graded by four human graders. The objective is to assess the alignment
+			between grades assigned by the autograder and those assigned by human
+			graders. Findings indicate that the autograder closely matches human
+			grading when letter grades are considered, though it performs less
+			accurately with fine-grained numerical scores.  While not yet a complete
+			substitute for human assessment, the autograder shows strong potential as
+			a scalable, efficient tool for supporting grading in programming
+			education.},
+}
+
+
+@inproceedings{ullah2024llms,
+  title={Llms cannot reliably identify and reason about security vulnerabilities (yet?): A comprehensive evaluation, framework, and benchmarks},
+  author={Ullah, Saad and Han, Mingji and Pujar, Saurabh and Pearce, Hammond and Coskun, Ayse and Stringhini, Gianluca},
+  booktitle={2024 IEEE Symposium on Security and Privacy (SP)},
+  pages={862--880},
+  year={2024},
+  organization={IEEE}
+}
+
+@misc{nvidcweslice,
+  author = {{NIST}},
+  title = {{NVD} {CWE} Slice},
+  note = {Avialble: \url{https://nvd.nist.gov/vuln/categories}, Accessed April 1, 2025},
+}
+
+@INPROCEEDINGS{fie2024dlcd,
+  author={Daniels, Denise and Lee, Joon Suk and Chen, Hui and Damevski, Kostadin},
+  booktitle={2024 IEEE Frontiers in Education Conference (FIE)}, 
+  title={Utilizing Real-World Software Vulnerabilities to Enhance Secure Programming Education}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-8}, keywords={Training;Surveys;Databases;Grounding;Source coding;Pressing;Software;Computer security;Programming profession;5.b.vii. Computer science;8.c. Computing skills;8.u. Student perception;12.d.iii. Mixed methods research},
+  doi={10.1109/FIE61694.2024.10893584}}
+
+@inproceedings{chen2019using,
+  title={Using automated prompts for student reflection on computer security concepts},
+  author={Chen, Hui and Ciborowska, Agnieszka and Damevski, Kostadin},
+  booktitle={Proceedings of the 2019 ACM Conference on innovation and technology in computer science education},
+  pages={506--512},
+  year={2019}
+}
+
+@book{cscurriculum2023,
+author = {Kumar, Amruth N. and Raj, Rajendra K. and Aly, Sherif G. and Anderson, Monica D. and Becker, Brett A. and Blumenthal, Richard L. and Eaton, Eric and Epstein, Susan L. and Goldweber, Michael and Jalote, Pankaj and Lea, Douglas and Oudshoorn, Michael and Pias, Marcelo and Reiser, Susan and Servin, Christian and Simha, Rahul and Winters, Titus and Xiang, Qiao},
+title = {Computer Science Curricula 2023},
+year = {2024},
+isbn = {9798400710339},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA}
+}
+
+@misc{cweswview,
+author={{Mitre}},
+title={Software Development View of Common Weakness Enumerations (CWEs)},
+note={Available: \url{https://cwe.mitre.org/data/definitions/699.html}, last accessed March 10, 2024},
+}
+
+@software{Chen_CS_Topic-CWE-CVE_Mapping_2025,
+author = {Chen, Hui and Kostadin, Damevski and Jeffrey, Zhang and Wesley, Liang},
+month = apr,
+title = {{CS Topic-CWE-CVE Mapping and Tool}},
+version = {0.0.1},
+year = {2025},
+note = {Available:
+\url{https://github.com/RealVulnerabilityEdu/webvulmap}, last accessed April 18, 2025},
+}
+
+@inproceedings{le2024automatic,
+  title={Automatic data labeling for software vulnerability prediction models: How far are we?},
+  author={Le, Triet Huynh Minh and Babar, Muhammad Ali},
+  booktitle={Proceedings of the 18th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement},
+  pages={131--142},
+  year={2024}
+}
+
+@inproceedings{jimenez2019importance,
+  title={The importance of accounting for real-world labelling when predicting software vulnerabilities},
+  author={Jimenez, Matthieu and Rwemalika, Renaud and Papadakis, Mike and Sarro, Federica and Le Traon, Yves and Harman, Mark},
+  booktitle={Proceedings of the 2019 27th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  pages={695--705},
+  year={2019}
+}
+
+@inproceedings{zhang2011empirical,
+  title={An empirical study on using the national vulnerability database to predict software vulnerabilities},
+  author={Zhang, Su and Caragea, Doina and Ou, Xinming},
+  booktitle={International conference on database and expert systems applications},
+  pages={217--231},
+  year={2011},
+  organization={Springer}
+}
+
+@article{ashok2024little,
+  title={A little human data goes a long way},
+  author={Ashok, Dhananjay and May, Jonathan},
+  journal={arXiv preprint arXiv:2410.13098},
+  year={2024}
+}

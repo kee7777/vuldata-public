@@ -1,0 +1,62 @@
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\usepackage{xcolor}  % For colorbox
+\usepackage{ifthen}  % For conditionals
+% \usepackage[most]{tcolorbox}
+% \tcbset{enhanced jigsaw, sharp corners,box align=center,boxrule=0pt}
+% \usepackage{soul}
+
+% Basic version (as you created)
+% \newcommand{\attention}[2]{%
+%   \ifthenelse{\equal{#1}{true}}%
+%     {\colorbox{yellow}{\parbox{\dimexpr\linewidth-2\fboxsep}{#2}}}%
+%     {#2}%
+% }
+
+% \newcommand{\attention}[2]{%
+%   \ifthenelse{\equal{#1}{true}}%
+%     {\hl{{#2}}}%
+%     {#2}%
+% }
+
+\newcommand{\attention}[2]{%
+  \ifthenelse{\equal{#1}{true}}%
+    {{\textcolor{red}{#2}}}%
+    {#2}%
+}
+
+% \newcommand{\attention}[2]{%
+%   \ifthenelse{\equal{#1}{true}}%
+%     {\begin{tcolorbox}[colback=yellow]{#2}\end{tcolorbox}}%
+%     {#2}%
+% }
+
+
+% \newcommand{\attention}[2]{%
+%   \ifthenelse{\equal{#1}{true}}%
+%     {{\color{yellow}{#2}}}%
+%     {#2}%
+% }
+
+
+% Enhanced version with options:
+% \attention[color]{condition}{text}
+\newcommand{\attentionopt}[3][yellow]{%
+  \ifthenelse{\equal{#2}{true}}%
+    {\colorbox{#1}{#3}}%  % Use optional color
+    {#3}%
+}
+
+% Star version for quick highlighting:
+% \attention*{text}  vs  \attention{text}
+\newcommand{\attentionstar}[1]{%
+  \@ifstar%
+    {\colorbox{yellow}{#1}}%
+    {#1}%
+}
+
+\usepackage[normalem]{ulem}  % For strikethrough
+\newcommand{\deletetext}[2]{%
+  \ifthenelse{\equal{#1}{true}}%
+    {}%                      % True - remove completely
+    {\sout{#2}}%             % False - strikethrough
+}

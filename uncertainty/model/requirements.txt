@@ -1,0 +1,8 @@
+torch==1.13.1
+transformers==4.22.2
+tensorboard==2.14.0
+pandas==1.2.4
+numpy==1.19.5
+scikit-learn==1.1.2
+torchmetrics==0.11.4
+tqdm==4.64.1
